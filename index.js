@@ -509,7 +509,7 @@ function setDateRanges(auth) {
         date = new Date(startDateString)
         date.setDate(date.getDate() + i)
 	column=numToAlpha(startColumnNum + i)
-        column=`!${column}:${column}`
+        column=`!${column}2:${column}300`
 
 	dateString=(date.getUTCMonth()+1) + '-' + date.getUTCDate() + '-' + date.getUTCFullYear() 
 	values[i] = [i, column, date.toISOString(), dateString, deathTab + column, confirmedTab + column]
@@ -618,8 +618,8 @@ async function calculateDailyStatsByCountry(auth) {
 	    rowNum++
 
 
-	    var confirmed = `=sumif(confirmed_global!$B:$B,B${rowNum},indirect(vlookup(A${rowNum},date_range_2,3,false)))`
-	    var deaths = `=sumif(deaths_global!$B:$B,B${rowNum},indirect(vlookup(A${rowNum},date_range_2,2,false)))`
+	    var confirmed = `=sumif(confirmed_global!$B2:$B300,B${rowNum},indirect(vlookup(A${rowNum},date_range_2,3,false)))`
+	    var deaths = `=sumif(deaths_global!$B2:$B300,B${rowNum},indirect(vlookup(A${rowNum},date_range_2,2,false)))`
 	    var usEvent = ''
 	    if (country == 'US') {
 		usEvent = `=vlookup(E${rowNum}, events, 2, true)`
