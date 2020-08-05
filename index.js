@@ -642,7 +642,9 @@ async function calculateDailyStatsByCountry(auth) {
 		findDoubledDate(country, date, startDate),
 		`=vlookup(K${rowNum}&B${rowNum},C:E,2,false)`,
 		`=round(D${rowNum}/L${rowNum},3)`,
-		`=A${rowNum}-K${rowNum}`
+		`=A${rowNum}-K${rowNum}`,
+		`=D${rowNum}-vlookup(($A${rowNum}-1)&$B${rowNum},$C:$E,2,false)`,
+		`=E${rowNum}-vlookup(($A${rowNum}-1)&$B${rowNum},$C:$E,3,false)`
 	    ]
 	    values.push(row)
 	});
