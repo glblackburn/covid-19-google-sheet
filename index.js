@@ -29,6 +29,8 @@ const DEATHS_SHEET_NAME = 'deaths_global'
 const START_DATE = '2020-01-22'
 const WORLD = 'World'
 const COUNTRIES = [
+    'Mexico',
+    'Canada',
     'Brazil',
     'China',
     'Germany',
@@ -64,7 +66,7 @@ loadConfirmedGlobalLookup( loadConfirmedGlobal )
 
 
 function debug(message) {
-    //console.log(message)
+    console.log(message)
 }
 
 
@@ -498,7 +500,7 @@ function setDateRanges(auth) {
 
     const deathTab = DEATHS_SHEET_NAME
     const confirmedTab = CONFIRMED_SHEET_NAME
-    const days = 200
+    const days = 400
     //const startDateString='2020-03-01 12:00:00 AM'
     //const startColumnNum = alphaToNum('AR')
     const startDateString='2020-01-22 12:00:00 AM'
@@ -545,13 +547,15 @@ function getLookupDateString(date) {
 }
 
 function findDoubledDate( country, maxDate, minDate ) {
-    debug(`findDoubledDate: country=[${country}], maxDate=[${maxDate}], minDate=[${minDate}]`)
+    //debug(`findDoubledDate: start  country=[${country}], maxDate=[${maxDate}], minDate=[${minDate}]`)
     
     const maxCount = getCountryDateConfirmed(country, getLookupDateString(maxDate))
-    var lastDateString = 0;
 
     var date = new Date(maxDate)
-    var dateString
+    var dateString = getLookupDateString(date)
+    var lastDateString = dateString
+    debug(`findDoubledDate: start  country=[${country}], maxDate=[${maxDate}], minDate=[${minDate}], maxCount=[${maxCount}], lastDateString=[${lastDateString}]`)
+
     while (date >= minDate) {
 	date.setDate(date.getDate() - 1)
 	var dateString = getLookupDateString(date)
@@ -561,6 +565,7 @@ function findDoubledDate( country, maxDate, minDate ) {
 	}
 	lastDateString = dateString
     }
+    debug(`findDoubledDate: return country=[${country}], maxDate=[${maxDate}], minDate=[${minDate}], maxCount=[${maxCount}], lastDateString=[${lastDateString}]`)
     return lastDateString
 }
 
