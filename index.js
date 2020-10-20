@@ -29,14 +29,17 @@ const DEATHS_SHEET_NAME = 'deaths_global'
 const START_DATE = '2020-01-22'
 const WORLD = 'World'
 const COUNTRIES = [
-    'Mexico',
-    'Canada',
+    'Argentina',
+    'Belgium',
     'Brazil',
+    'Canada',
     'China',
+    'France',
     'Germany',
     'India',
     'Iran',
     'Italy',
+    'Mexico',
     'Russia',
     'Spain',
     'Sweden',
