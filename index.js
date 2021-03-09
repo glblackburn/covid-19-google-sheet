@@ -503,7 +503,7 @@ function setDateRanges(auth) {
 
     const deathTab = DEATHS_SHEET_NAME
     const confirmedTab = CONFIRMED_SHEET_NAME
-    const days = 400
+    const days = 600
     //const startDateString='2020-03-01 12:00:00 AM'
     //const startColumnNum = alphaToNum('AR')
     const startDateString='2020-01-22 12:00:00 AM'
